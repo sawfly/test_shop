@@ -1,0 +1,37 @@
+version: '2'
+services:
+    app:
+        build:
+            context: .test_shop/application
+            args:
+                - PATH_TO_PROJECT=/var/www/test_shop.app
+        container_name: testshop.app
+        volumes:
+          - ./application:/var/www/test_shop.app
+        tty: true
+    php:
+        build:
+            context: .test_shop/php
+        container_name: testshop_php
+        volumes_from:
+            - app
+        ports:
+            - "80:80"
+            - "443:443"
+        volumes:
+            - ./logs/apache2/:/var/log/apache2
+        links:
+            - app
+    mysql:
+        build:
+            context: .test_shop/mysql
+        container_name: testshop_mysql
+        volumes_from:
+            - app
+        ports:
+            - "3306:3306"
+        environment:
+            MYSQL_DATABASE: sawfly
+            MYSQL_USER: sawfly
+            MYSQL_PASSWORD: secret
+            MYSQL_ROOT_PASSWORD: root

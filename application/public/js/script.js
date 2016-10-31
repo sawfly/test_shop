@@ -31,13 +31,11 @@ var Cart = {
         if (typeof this.quantities[index] != 'undefined' && this.quantities[index] > 0) this.quantities[index]--;
     },
     addPrices: function (index, price) {
-        console.log(index, price, typeof this.prices[index]);
         if (typeof this.prices[index] == 'undefined' || this.prices[index] == '') this.prices.splice(index, 0, price);
     },
     addToCart: function (id) {
         var name = document.getElementById("name" + id).textContent;
         var price = document.getElementById("price" + id).textContent;
-        console.log(price);
         if (this.cache < price) return {error: 'not enough money'};
         else {
             this.changeCache(price);
@@ -63,7 +61,6 @@ var Cart = {
         document.getElementById("quantity" + index).innerHTML = this.quantities[index];
         document.getElementById("amount" + index).innerHTML = Math.round(this.quantities[index] * this.prices[index] * 100) / 100 + '$';
         document.cookie = 'cart=' + this.toString() + '; path=/';
-        console.log(this.toString());
     },
     removeOne: function (index) {
         var price = parseFloat(this.prices[index]);
@@ -77,7 +74,6 @@ var Cart = {
         document.getElementById("quantity" + index).innerHTML = this.quantities[index];
         document.getElementById("amount" + index).innerHTML = Math.round(this.quantities[index] * this.prices[index] * 100) / 100 + '$';
         document.cookie = 'cart=' + this.toString() + '; path=/';
-        console.log(this.toString());
     },
     forAjax: function () {
         var data = '';
@@ -104,13 +100,11 @@ function cclick(a) {
     if (z !== undefined) {
         window.alert("You don't have enough money!");
     }
-    console.log(Cart);
     document.cookie = 'cart=' + Cart.toString() + '; path=/';
 }
 
 function loaded() {
     var cookies = document.cookie;
-    console.log(cookies);
     if (cookies && cookies != 'cart=') {
         cookies = cookies.split(';');
         cookies = cookies[0].split('&');
@@ -143,7 +137,6 @@ function makeOrder() {
         }
     }
     sendOrder(transport);
-    console.log('make request');
 }
 function makeCart() {
     var head = '<table>' +
@@ -152,7 +145,6 @@ function makeCart() {
     var body = '';
     if (Cart.products[0] != '' && typeof Cart.products[0] != 'undefined') {
         for (product in Cart.products) {
-            console.log(Cart.products[product]);
             body += '<tr><td>' + Cart.products[product] + '</td>' +
                 '<td>' + Cart.prices[product] + '$</td>' +
                 '<td' + ' id="quantity' + product + '">' + Cart.quantities[product] + '</td>' +
@@ -160,13 +152,8 @@ function makeCart() {
                 '<td><input class="button" type="button" value="Add" id="product' + product + '" onclick="Cart.addOneMore(' + product + ')" />' + ' </td>' +
                 '<td><input class="button" type="button" value="Remove" id="product' + product + '" onclick="Cart.removeOne(' + product + ')" />' + ' </td></tr>';
         }
-        // body += '<tr><td colspan="4"><select id="transport">' +
-        //     '<option value="">transport</option>' +
-        //     '<option value="0">pick up</option>' +
-        //     '<option value="1">UPS</option>' +
-        //     '</select></td><td colspan="2"><input class="button" type="button" value="Order" onclick="makeOrder()"/></td></tr>';
         foot += '<div class="tbl">'+
-            '<select id="transport"' +
+            '<select id="transport">' +
             '<option value="">transport</option>' +
             '<option value="0">pick up</option>' +
             '<option value="1">UPS</option>' +

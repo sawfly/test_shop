@@ -1,8 +1,8 @@
 <html>
 <head>
     <title>Test Shop</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script src="js/script.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <script src="./js/script.js"></script>
 </head>
 <body>
 <div class="header">
@@ -15,7 +15,7 @@
     </div>
 </div>
 <div class="container">
-    <?php include_once './products.php'; ?>
+    <?php require_once ('./products.php');?>
 </div>
 <script>
     document.getElementById('cache').innerHTML = Cart.cache;

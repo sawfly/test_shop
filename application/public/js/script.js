@@ -157,14 +157,21 @@ function makeCart() {
                 '<td>' + Cart.prices[product] + '$</td>' +
                 '<td' + ' id="quantity' + product + '">' + Cart.quantities[product] + '</td>' +
                 '<td class="amount" id="amount' + product + '">' + Math.round(Cart.prices[product] * Cart.quantities[product] * 100) / 100 + '$</td>' +
-                '<td><input type="button" value="Add" id="product' + product + '" onclick="Cart.addOneMore(' + product + ')" />' + ' </td>' +
-                '<td><input type="button" value="Remove" id="product' + product + '" onclick="Cart.removeOne(' + product + ')" />' + ' </td></tr>';
+                '<td><input class="button" type="button" value="Add" id="product' + product + '" onclick="Cart.addOneMore(' + product + ')" />' + ' </td>' +
+                '<td><input class="button" type="button" value="Remove" id="product' + product + '" onclick="Cart.removeOne(' + product + ')" />' + ' </td></tr>';
         }
-        body += '<tr><td colspan="3"><select id="transport">' +
+        // body += '<tr><td colspan="4"><select id="transport">' +
+        //     '<option value="">transport</option>' +
+        //     '<option value="0">pick up</option>' +
+        //     '<option value="1">UPS</option>' +
+        //     '</select></td><td colspan="2"><input class="button" type="button" value="Order" onclick="makeOrder()"/></td></tr>';
+        foot += '<div class="tbl">'+
+            '<select id="transport"' +
             '<option value="">transport</option>' +
             '<option value="0">pick up</option>' +
             '<option value="1">UPS</option>' +
-            '</select></td><td colspan="2"><input type="button" value="Order" onclick="makeOrder()"/></td></tr>';
+            '</select></div>' +
+            '<div class="tbl"><input class="button right" type="button" value="Order" onclick="makeOrder()"/></div>';
     }
     return head + body + foot;
 }

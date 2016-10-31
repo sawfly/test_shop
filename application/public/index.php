@@ -6,7 +6,7 @@
 </head>
 <body>
 <div class="header">
-<div class="title"><h2><a href="/">Test shop</a></h2></div>
+    <div class="title"><h2><a href="/">Test shop</a></h2></div>
     <div class="cart">
         <ul>
             <li><a href="/cart">Cart</a></li>
@@ -14,7 +14,9 @@
         </ul>
     </div>
 </div>
-<?php include_once './products.php';?>
+<div class="container">
+    <?php include_once './products.php'; ?>
+</div>
 <script>
     document.getElementById('cache').innerHTML = Cart.cache;
 </script>

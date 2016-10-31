@@ -1,5 +1,9 @@
-.header {
-    border: 1px solid red;
+.header, a {
+    background-color: mediumaquamarine;
+    color: saddlebrown;
+    height: 80px;
+    border-radius: 5px;
+
 }
 
 .title {
@@ -12,17 +16,13 @@
 }
 
 .cart {
+
     display: inline-block;
     float: right;
     margin: auto;
-    padding: auto;
     right: 0;
+padding-top: 25px;
 }
-
-/*.cache {*/
-    /*display: inline-block;*/
-    /*width: 20%;*/
-/*}*/
 
 a {
     text-decoration: none;
@@ -31,9 +31,50 @@ a {
 ul {
     display: inline;
     list-style-type: none;
+    padding-top: 10px;
 }
 
 li {
     float: left;
     margin: 0 10px;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+.button, select {
+    background-color: azure;
+    border-radius: 2px;
+    color: black;
+    border: 1px solid silver;
+    padding: 5px;
+    min-width: 20px;
+    margin: auto;
+}
+table, .tbl{
+    text-align: center;
+    border-collapse: collapse;
+    width: 60%;
+    margin: auto;
+    margin-top: 35px;
+    padding: 3px;
+}
+
+td {
+    border-bottom: 1px solid silver;
+}
+
+.button:hover, a:hover{
+    background-color: silver;
+    color: saddlebrown;
+    border: 1px solid mediumaquamarine;
+}
+
+#transport {
+    float: left;
+}
+.right{
+    float: right;
 }

@@ -16,3 +16,5 @@ Most important:
 - please DO NOT use anybody else work for this. everything in this project should be written by you for the purpose of this project (no reuse of old projects).
 - Please use Allman coding style, https://en.wikipedia.org/wiki/Indent_style#Allman_style
 
+### result
+http://test-shop.adr.com.ua

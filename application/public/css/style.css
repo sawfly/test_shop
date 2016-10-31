@@ -1,0 +1,39 @@
+.header {
+    border: 1px solid red;
+}
+
+.title {
+    display: inline-block;
+    font-family: "DejaVu Serif", sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    font-variant: small-caps;
+    min-width: 60%;
+}
+
+.cart {
+    display: inline-block;
+    float: right;
+    margin: auto;
+    padding: auto;
+    right: 0;
+}
+
+/*.cache {*/
+    /*display: inline-block;*/
+    /*width: 20%;*/
+/*}*/
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    display: inline;
+    list-style-type: none;
+}
+
+li {
+    float: left;
+    margin: 0 10px;
+}
